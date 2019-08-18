@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  background: black;
+}
+
+.joker {
+  position: absolute;
+  animation: 2s ease-in anim1;
+  width: 70%;
+  margin-left: 15%;
+  z-index: 2 !important;
+}
+
+@keyframes anim1 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.alley {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  animation: 1s ease-in-out anim2;
+  margin-left: 8%;
+}
+
+@keyframes anim2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  margin-left: 40%;
+  margin-top: 30%;
+}
+
+.menu-container {
+  margin-top: 46px;
+  margin-left: 46px;
+  position: absolute;
+  z-index: 3 !important;
+  transition: 0.5s;
+  padding: 10px;
+}
+
+.line1 {
+  background: white;
+  padding: 2px 18px;
+}
+
+.line2 {
+  background: white;
+  padding: 2px 18px;
+  margin-top: 5px;
+  transition: 0.5s;
+}
+
+.line3 {
+  background: white;
+  padding: 2px 18px;
+  margin-top: 5px;
+}
+
+.menu-container:hover {
+  -ms-transform: rotate(90deg); 
+  -webkit-transform: rotate(90deg);
+}
+
+.menu-container:hover .line2
+ {
+  background: #dcde20;
+}
+
+h1 {
+  position: absolute;
+  color: white;
+  margin-top: 200px;
+  margin-left: 250px;
+  font-size: 64px;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+p {
+  color: white;
+  margin-top: 300px;
+  margin-left: 70px;
+  font-family: 'Archivo Black', sans-serif;
+}
