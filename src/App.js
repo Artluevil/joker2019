@@ -1,31 +1,38 @@
-import React, { Component } from 'react'
-import OnlyJoker from './Images/OnlyJoker.png'
-import Smoke from './Images/Smoke.png'
-import { MdMenu } from "react-icons/md";
-import Alley from './Images/Alley.png'
-import JokerLogo from './Images/JokerLogo.png'
+import React, { Component } from 'react';
+import OnlyJoker from './Images/OnlyJoker.png';
+import Alley from './Images/Alley.png';
+import JokerLogo from './Images/JokerLogo.png';
 import { IoIosArrowDropright } from "react-icons/io";
-import Trailer from './Trailer'
-import JokerMask from './Images/JokerMask.png'
-import Menu from './Menu'
+import Trailer from './Trailer';
+import JokerMask from './Images/JokerMask.png';
+import Menu from './Menu';
+import Actors from './Actors';
+import Galery from './Galery';
+import Informations from './Informations';
 
 export default class App extends Component {
     state = {
         trailerClicked: false,
         menuClicked: false,
         pageStyle: "container",
+        actors: false,
+        galery: false,
+        informations: false,
     }
 
     onTrailerClick = () => {
         this.setState({
             trailerClicked: true,
-            pageStyle: "container-hidden"
+            pageStyle: "container-hidden",
         })
     }
 
     onClickClose = () => {
         this.setState({
             trailerClicked: false,
+            actors: false,
+            galery: false,
+            informations: false,
             pageStyle: "container"
         })
     }
@@ -36,19 +43,34 @@ export default class App extends Component {
         })
     }
 
+    onOptionClick = (e) => {
+        this.setState({
+            [e.target.getAttribute('name')]: true,
+        })
+    }
+
     render() {
-        console.log(this.state.trailerClicked)
+        console.log(this.state.actors)
         return (
             <div>
+                <div className="actors-page">
+                    {this.state.actors ? <Actors /> : null}
+                </div>
+                <div className="galery-page">
+                    {this.state.galery ? <Galery /> : null}
+                </div>
+                <div className="information-page">
+                    {this.state.informations ? <Informations /> : null}
+                </div>
                  <div className="menu">
-                    {this.state.menuClicked ? <Menu /> : null}
+                    {this.state.menuClicked ? <Menu onOptionClick={this.onOptionClick}/> : null}
                 </div>
                 <div className={this.state.pageStyle}>
                     <div className="imgs-container">
-                        <img className="joker" src={OnlyJoker}/>
-                        <img className="alley" src={Alley}/>
-                        <img className="logo" src={JokerLogo}/>
-                        <img className="jokerMask" src={JokerMask}/>
+                        <img className="joker"  alt="Joker"src={OnlyJoker}/>
+                        <img className="alley" alt="Alley" src={Alley}/>
+                        <img className="logo" alt="JokerPoster" src={JokerLogo}/>
+                        <img className="jokerMask" alt="JokerLogo" src={JokerMask}/>
                     </div>
                     <div onClick={this.onMenuClick} className="menu-container">
                         <div className={this.state.menuClicked ? "line1-close": "line1-menu"}></div>
