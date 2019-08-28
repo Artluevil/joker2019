@@ -9,6 +9,9 @@ import Menu from './Menu';
 import Actors from './Actors';
 import Galery from './Galery';
 import Informations from './Informations';
+import TwitterIcon from './Images/TwitterIcon.png'
+import FacebookIcon from './Images/FacebookIcon.png'
+import GithubIcon from './Images/GithubIcon.png'
 
 export default class App extends Component {
     state = {
@@ -49,18 +52,26 @@ export default class App extends Component {
         })
     }
 
+    onBackClick = () => {
+        this.setState({
+            galery: false,
+            actors: false,
+            informations: false,
+        })
+    }
+
     render() {
         console.log(this.state.actors)
         return (
             <div>
                 <div className="actors-page">
-                    {this.state.actors ? <Actors /> : null}
+                    {this.state.actors ? <Actors onBackClick={this.onBackClick} /> : null}
                 </div>
                 <div className="galery-page">
-                    {this.state.galery ? <Galery /> : null}
+                    {this.state.galery ? <Galery onBackClick={this.onBackClick}/> : null}
                 </div>
                 <div className="information-page">
-                    {this.state.informations ? <Informations /> : null}
+                    {this.state.informations ? <Informations onBackClick={this.onBackClick} /> : null}
                 </div>
                  <div className="menu">
                     {this.state.menuClicked ? <Menu onOptionClick={this.onOptionClick}/> : null}
@@ -85,6 +96,11 @@ export default class App extends Component {
                 </div>
                 <div>
                     {this.state.trailerClicked ? <Trailer onClickClose={this.onClickClose} style={{zIndex: '999 !important'}}/> : null}
+                </div>
+                <div className="social-icons">
+                    <img className="twitter-icon" src={TwitterIcon}/>
+                    <img className="facebook-icon" src={FacebookIcon}/>
+                    <img className="github-icon" src={GithubIcon}/>
                 </div>
             </div>
         )
