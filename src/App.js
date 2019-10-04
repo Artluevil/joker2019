@@ -21,12 +21,14 @@ export default class App extends Component {
         actors: false,
         galery: false,
         informations: false,
+        socials: "social-icons"
     }
 
     onTrailerClick = () => {
         this.setState({
             trailerClicked: true,
             pageStyle: "container-hidden",
+            socials: "social-icons-hidden"
         })
     }
 
@@ -36,7 +38,8 @@ export default class App extends Component {
             actors: false,
             galery: false,
             informations: false,
-            pageStyle: "container"
+            pageStyle: "container",
+            socials: "social-icons"
         })
     }
 
@@ -97,7 +100,7 @@ export default class App extends Component {
                 <div>
                     {this.state.trailerClicked ? <Trailer onClickClose={this.onClickClose} style={{zIndex: '999 !important'}}/> : null}
                 </div>
-                <div className="social-icons">
+                <div className={this.state.socials}>
                     <img className="twitter-icon" src={TwitterIcon}/>
                     <img className="facebook-icon" src={FacebookIcon}/>
                     <img className="github-icon" src={GithubIcon}/>

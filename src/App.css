@@ -403,7 +403,7 @@ h2 {
 
 .social-icons {
   position: absolute;
-  margin-top: 48%;
+  margin-top: 46%;
   margin-left: 47%;
 }
 
@@ -412,4 +412,8 @@ h2 {
   height: 24px;
   margin-right: 20px;
   cursor: pointer;
+}
+
+.social-icons-hidden {
+  visibility: hidden;
 }
